@@ -1,6 +1,11 @@
 devstack-vagrant
 ================
 
+Self-defined Version
+------------------------
+
+My config file is in ``config.yaml.mine``
+
 This is an attempt to build an easy to use tool to bring up a 2 node
 devstack environment for local testing using Vagrant + Puppet.
 

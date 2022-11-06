@@ -85,7 +85,9 @@ def configure_vm(name, vm, conf)
 
   if conf['setup_mode'] == "devstack"
     vm.provision "shell" do |shell|
-      shell.inline = "sudo su - stack -c 'cd ~/devstack && ./stack.sh'"
+      shell.inline = <<-'SCRIPT'
+       sudo su - stack -c "cd ~/devstack && sed -i 's/https:\/\/github.com/https:\/\/ghproxy.com\/https:\/\/github.com/g' stackrc && ./stack.sh"
+      SCRIPT
     end
   end
 
